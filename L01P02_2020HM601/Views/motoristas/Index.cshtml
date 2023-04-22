@@ -1,0 +1,35 @@
+﻿@model IEnumerable<L01P02_2020HM601.Models.motoristas>
+
+@{
+    ViewData["Title"] = "Ventana de Motoristas";
+}
+
+<h1>Ventana de Motoristas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMotorista)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMotorista)
+            </td>
+            <td>
+                    <a class="btn btn-success"  asp-action="Edit" asp-route-id="@item.MotoristaId">Edit</a> |
+                    <a class="btn btn-warning"  asp-action="Details" asp-route-id="@item.MotoristaId">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MotoristaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
